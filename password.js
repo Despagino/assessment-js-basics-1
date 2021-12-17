@@ -1,4 +1,8 @@
 const readline = require('readline')
+const figlet = require('figlet');
+
+
+
 
 const reader = readline.createInterface({
     input: process.stdin,
@@ -16,12 +20,17 @@ const reader = readline.createInterface({
     var strongPasswordCheck = new RegExp("^(?=.{10,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
 
 	if (strongPasswordCheck.test(password)) {
-            console.log("Congrats you have successfully set your password")        
+            console.log(
+              
+              figlet.textSync("Congrats", { horizontalLayout: 'full'})
+            )
+        } else {
+          console.log(
+          figlet.textSync("Fail", { horizontalLayout: 'full'})
+          )
         }
         
-	else {
-		console.log("Please create a more secure password.")
-	}
+
 
 	// This line closes the connection to the command line interface.
 	reader.close()
